@@ -9,89 +9,53 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'rockpaperscissor';
+  user: string = '';
   computer: string = '';
   result: string = ''; // Initialize result with an empty string
   num: number = 0;
   user_score: number = 0;
   computer_score: number = 0;
 
+
   Myfun(user:any){
-    this.num = Math.random()
-    this.num = this.num*100
+    this.user = user;
+    this.num = Math.random();
+    this.num = this.num*100;
     
     if(this.num>=0 && this.num<=33){
-      this.computer='paper' // Computer chose paper
+      this.computer='Paper' // Computer chose paper
     }
     else if(this.num>=34 && this.num<=66){
-      this.computer='rock' // Computer chose rock
+      this.computer='Rock' // Computer chose rock
     }
     else{
-      this.computer='scissors' // Computer chose scissors
+      this.computer='Scissors' // Computer chose scissors
     }
 
     if(user == this.computer){
-
       this.result = 'It is a Draw.';
-  
-    } else if(user == 'rock' && this.computer == 'paper'){
-  
+    } else if(user == 'Rock' && this.computer == 'Paper'){
       this.result = 'Computer Wins.';
-  
       this.computer_score += 1; // Increment computer score
-  
-    } else if(user == 'rock' && this.computer == 'scissors'){
-  
+    } else if(user == 'Rock' && this.computer == 'Scissors'){
       this.result = 'You Win.';
-  
       this.user_score += 1; // Increment user score
-  
-    } else if(user == 'paper' && this.computer == 'scissors'){
-  
+    } else if(user == 'Paper' && this.computer == 'Scissors'){
       this.result = 'Computer Wins.';
-  
       this.computer_score += 1; // Increment computer score
-  
-    } else if(user == 'paper' && this.computer == 'rock'){
-  
+    } else if(user == 'Paper' && this.computer == 'Rock'){
       this.result = 'You Win.';
-  
       this.user_score += 1; // Increment user score
-  
-    } else if(user == 'scissors' && this.computer == 'paper'){
-  
+    } else if(user == 'Scissors' && this.computer == 'Paper'){
       this.result = 'You Win.';
-  
       this.user_score += 1; // Increment user score
-  
-    } else if(user == 'scissors' && this.computer == 'rock'){
-  
+    } else if(user == 'Scissors' && this.computer == 'Rock'){
       this.result = 'Computer Wins.';
-  
       this.computer_score += 1; // Increment computer score
-    }
-
-
-  }
-
-  DetermineWinner() {
-    if (this.user_score > this.computer_score) {
-      alert('Congratulations! You are the overall winner.');
-    } else if (this.user_score < this.computer_score) {
-      alert('Computer is the overall winner. Better luck next time!');
-    } else {
-      alert('The game is a draw.');
     }
   }
 
   ResetGame(){
-    if (confirm('Are you sure you want to reset the game?')) {
-      window.location.reload();
-      this.computer = '';
-      this.result = '';
-      this.num = 0;
-      this.user_score = 0;
-      this.computer_score = 0;
-    }
+    window.location.reload()
   }
 }
-

@@ -1,16 +1,24 @@
 <div class="container">
   <div class="card">
-    <h1>Rock Paper Scissors</h1>
-    <h3>Choose your move</h3>
-    <img src="assets/rock.png" width="120" (click)="myfun('rock')" alt="">
-    <img src="assets/paper.png" width="120" (click)="myfun('paper')" alt="">
-    <img src="assets/scissors.png" width="120" (click)="myfun('scissors')" alt="">
-    <h2>Computer chose {{computer}}</h2>
+    <h1>Choose Your Move</h1>
+    <div class="images">
+      <img src="assets/rock.png" width="100" (click)="Myfun('Rock')">
+      <img src="assets/paper.png" width="100" (click)="Myfun('Paper')">
+      <img src="assets/scissors.png" width="100" (click)="Myfun('Scissors')">
+    </div>
+    <h2>You chose: {{user}}</h2>
+    <h2>Computer chose: {{computer}}</h2>
     <h2>{{result}}</h2>
     <div id="score">
-      <h3>User: {{user_score}}</h3>
+      <h3>You: {{user_score}}</h3>
       <h3>Computer: {{computer_score}}</h3>
     </div>
-    <button (click)="resetGame()">Reset</button>
+    <button 
+      (click)="ResetGame()" 
+      style="background-color: blue; color: bisque; border-radius: 1rem; cursor: pointer; width: 5rem; height: 2rem; text-transform: uppercase;" 
+      onmouseover="this.style.backgroundColor='darkblue'" 
+      onmouseout="this.style.backgroundColor='blue'">
+      Reset
+    </button>
   </div>
 </div>
